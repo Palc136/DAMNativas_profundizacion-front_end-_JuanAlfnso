@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ¿Para qué sirve?: definir la estructura visual del detalle de un producto. -->
+<!-- ¿Qué hace?: muestra imagen grande, nombre, categoría, precio, descripción -->
+<!--             y botón "Agregar al carrito". -->
+<!-- ¿Cuál es su función en el código?: layout que ProductDetailFragment infla al mostrarse. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ¿Para qué sirve?: mostrar la imagen grande del producto. -->
+        <!-- ¿Qué hace?: ocupa el ancho completo y 240dp de alto con escala centerCrop. -->
+        <!-- ¿Cuál es su función en el código?: el Fragment le asigna una imagen -->
+        <!--             placeholder mientras no exista backend real. -->
+        <ImageView
+            android:id="@+id/imgProduct"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@color/white"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/product_image" />
+
+        <!-- ¿Para qué sirve?: mostrar el nombre del producto. -->
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextAppearance.App.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <!-- ¿Para qué sirve?: mostrar la categoría del producto. -->
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <!-- ¿Para qué sirve?: mostrar el precio del producto. -->
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/brand_orange"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- ¿Para qué sirve?: mostrar la descripción del producto. -->
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp" />
+
+        <!-- ¿Para qué sirve?: permitir agregar el producto al carrito. -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddToCart"
+            style="@style/Widget.App.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/add_to_cart" />
+    </LinearLayout>
+</ScrollView>

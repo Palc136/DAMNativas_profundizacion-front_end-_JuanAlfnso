@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ¿Para qué sirve?: definir el menú de navegación inferior del rol Administrador. -->
+<!-- ¿Qué hace?: declara 4 ítems (Dashboard, Usuarios, Productos, Reportes). -->
+<!-- ¿Cuál es su función en el código?: el admin accede a las funciones de supervisión. -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ¿Para qué sirve?: ítem que abre el dashboard general de la plataforma. -->
+    <!-- ¿Qué hace?: navega al Fragment adminDashboardFragment. -->
+    <!-- ¿Cuál es su función en el código?: KPIs globales del sistema. -->
+    <item
+        android:id="@+id/adminDashboardFragment"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="Dashboard" />
+
+    <!-- ¿Para qué sirve?: ítem que abre la gestión de usuarios. -->
+    <!-- ¿Qué hace?: navega al Fragment usersFragment. -->
+    <!-- ¿Cuál es su función en el código?: CRUD de usuarios del sistema. -->
+    <item
+        android:id="@+id/usersFragment"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="Usuarios" />
+
+    <!-- ¿Para qué sirve?: ítem que abre la supervisión de productos. -->
+    <!-- ¿Qué hace?: navega al Fragment adminProductsFragment. -->
+    <!-- ¿Cuál es su función en el código?: moderación del catálogo global. -->
+    <item
+        android:id="@+id/adminProductsFragment"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Productos" />
+
+    <!-- ¿Para qué sirve?: ítem que abre los reportes de ventas. -->
+    <!-- ¿Qué hace?: navega al Fragment salesReportFragment. -->
+    <!-- ¿Cuál es su función en el código?: análisis y exportación de reportes. -->
+    <item
+        android:id="@+id/salesReportFragment"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="Reportes" />
+</menu>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ¿Para qué sirve?: definir el menú lateral (Drawer) compartido por los tres roles. -->
+<!-- ¿Qué hace?: declara ítems de configuración, categorías, comisiones, notificaciones -->
+<!--             y cerrar sesión. -->
+<!-- ¿Cuál es su función en el código?: NavigationView lo infla y muestra como cajón lateral. -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ¿Para qué sirve?: agrupar ítems con selección única. -->
+    <!-- ¿Qué hace?: checkableBehavior="single" garantiza que solo uno esté marcado a la vez. -->
+    <!-- ¿Cuál es su función en el código?: comportamiento visual tipo radio en el drawer. -->
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_config" android:title="Configuración" />
+        <item android:id="@+id/nav_categories" android:title="Categorías" />
+        <item android:id="@+id/nav_comissions" android:title="Comisiones" />
+        <item android:id="@+id/nav_notifications" android:title="Notificaciones" />
+        <item android:id="@+id/nav_logout" android:title="Cerrar sesión" />
+    </group>
+</menu>

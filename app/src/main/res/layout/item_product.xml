@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ¿Para qué sirve?: definir la apariencia de una celda de producto en cualquier listado. -->
+<!-- ¿Qué hace?: muestra imagen, nombre, categoría, precio y botón "Agregar al carrito". -->
+<!-- ¿Cuál es su función en el código?: ProductAdapter lo infla por cada elemento del RecyclerView. -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    style="@style/Widget.App.Card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- ¿Para qué sirve?: mostrar la imagen del producto. -->
+        <!-- ¿Qué hace?: ocupa el ancho completo y 140dp de alto con escala centerCrop. -->
+        <!-- ¿Cuál es su función en el código?: se rellena en el adapter con el recurso -->
+        <!--             o URL correspondiente (o un placeholder si no hay imagen). -->
+        <ImageView
+            android:id="@+id/imgProduct"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@color/surface_light"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/product_image" />
+
+        <!-- ¿Para qué sirve?: mostrar el nombre del producto. -->
+        <!-- ¿Qué hace?: usa el estilo de título de tarjeta, con tipografía en negrita. -->
+        <!-- ¿Cuál es su función en el código?: el adapter asigna el texto desde product.getName(). -->
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextAppearance.App.CardTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <!-- ¿Para qué sirve?: mostrar la categoría del producto. -->
+        <!-- ¿Qué hace?: texto secundario más pequeño en color gris. -->
+        <!-- ¿Cuál es su función en el código?: el adapter asigna product.getCategory(). -->
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <!-- ¿Para qué sirve?: mostrar el precio del producto. -->
+        <!-- ¿Qué hace?: texto en naranja y negrita, resaltando el valor. -->
+        <!-- ¿Cuál es su función en el código?: el adapter asigna "$" + product.getPrice(). -->
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/brand_orange"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <!-- ¿Para qué sirve?: permitir agregar el producto al carrito. -->
+        <!-- ¿Qué hace?: botón estilizado con el color primario. -->
+        <!-- ¿Cuál es su función en el código?: el adapter enlaza el click para añadir al carrito. -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdd"
+            style="@style/Widget.App.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/add_to_cart" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

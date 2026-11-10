@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ¿Para qué sirve?: definir la estructura visual de la pantalla de inicio del comprador. -->
+<!-- ¿Qué hace?: muestra un banner con gradiente naranja→gris, un título de sección -->
+<!--             y un RecyclerView con productos destacados. -->
+<!-- ¿Cuál es su función en el código?: es el layout que HomeFragment infla al mostrarse. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface_light">
+
+    <!-- ¿Para qué sirve?: banner de bienvenida con gradiente. -->
+    <!-- ¿Qué hace?: ocupa 140dp de alto, con el nombre de la tienda y un subtítulo. -->
+    <!-- ¿Cuál es su función en el código?: refuerza la identidad visual de la marca. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/bg_gradient_header"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bienvenido a Tienda Virtual"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Descubre productos artesanales y locales"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- ¿Para qué sirve?: separar visualmente el banner del listado. -->
+    <!-- ¿Qué hace?: título "Productos destacados". -->
+    <!-- ¿Cuál es su función en el código?: guía visual para el usuario. -->
+    <TextView
+        style="@style/TextAppearance.App.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Productos destacados" />
+
+    <!-- ¿Para qué sirve?: mostrar la lista de productos destacados. -->
+    <!-- ¿Qué hace?: RecyclerView que ocupa el resto de la pantalla. -->
+    <!-- ¿Cuál es su función en el código?: HomeFragment le asigna LinearLayoutManager -->
+    <!--             y un ProductAdapter con datos mock. -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProducts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+</LinearLayout>

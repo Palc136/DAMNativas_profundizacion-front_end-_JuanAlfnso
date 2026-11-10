@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ¿Para qué sirve?: definir la estructura visual del catálogo de productos. -->
+<!-- ¿Qué hace?: muestra un buscador (SearchView) y un RecyclerView con todos los productos. -->
+<!-- ¿Cuál es su función en el código?: layout que CatalogFragment infla al mostrarse. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface_light">
+
+    <!-- ¿Para qué sirve?: barra de búsqueda de productos. -->
+    <!-- ¿Qué hace?: SearchView permite escribir y filtra en tiempo real. -->
+    <!-- ¿Cuál es su función en el código?: CatalogFragment captura el texto para filtrar -->
+    <!--             la lista de productos por nombre. -->
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Buscar productos..."
+        android:iconifiedByDefault="false"
+        android:background="@color/white"
+        android:layout_margin="8dp" />
+
+    <!-- ¿Para qué sirve?: mostrar la lista completa de productos. -->
+    <!-- ¿Qué hace?: RecyclerView vertical con todos los productos del catálogo. -->
+    <!-- ¿Cuál es su función en el código?: CatalogFragment le asigna adapter y layoutManager. -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCatalog"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+</LinearLayout>

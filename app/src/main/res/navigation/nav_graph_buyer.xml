@@ -1,0 +1,54 @@
+<!-- ¿Para qué sirve?: definir el mapa de navegación del rol Comprador. -->
+<!-- ¿Qué hace?: declara los Fragments del comprador y el destino inicial (homeFragment). -->
+<!-- ¿Cuál es su función en el código?: NavController lo usa para saber a qué Fragment -->
+<!--             navegar cuando el usuario pulsa un ítem del BottomNavigationView. -->
+<!--             NOTA: los nombres de paquete usan "buyer" (sin "ui.") según la estructura -->
+<!--             actual del proyecto. -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_buyer"
+    app:startDestination="@id/homeFragment">
+
+    <!-- ¿Para qué sirve?: pantalla de inicio del comprador. -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.buyer.HomeFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_buyer_home" />
+
+    <!-- ¿Para qué sirve?: catálogo completo de productos. -->
+    <fragment
+        android:id="@+id/catalogFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.buyer.CatalogFragment"
+        android:label="Catálogo"
+        tools:layout="@layout/fragment_catalog" />
+
+    <!-- ¿Para qué sirve?: detalle de un producto seleccionado. -->
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.buyer.ProductDetailFragment"
+        android:label="Detalle"
+        tools:layout="@layout/fragment_product_detail" />
+
+    <!-- ¿Para qué sirve?: carrito de compras del usuario. -->
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.buyer.CartFragment"
+        android:label="Carrito"
+        tools:layout="@layout/fragment_cart" />
+
+    <!-- ¿Para qué sirve?: pantalla de checkout y pago. -->
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.buyer.CheckoutFragment"
+        android:label="Pago"
+        tools:layout="@layout/fragment_checkout" />
+
+    <!-- ¿Para qué sirve?: perfil del comprador. -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.buyer.BuyerProfileFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_buyer_profile" />
+</navigation>

@@ -1,19 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- ¿Para qué sirve?: definir el esqueleto estructural de MainActivity. -->
+<!-- ¿Qué hace?: contiene un DrawerLayout (cajón lateral), una AppBar con toolbar, -->
+<!--             un FragmentContainerView (donde se montan los Fragments) y un -->
+<!--             BottomNavigationView (navegación inferior). -->
+<!-- ¿Cuál es su función en el código?: es el contenedor único donde cambian los Fragments -->
+<!--             según el rol del usuario; el drawer y la barra inferior permanecen fijos. -->
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- ¿Para qué sirve?: organizar el contenido principal (barra, fragmentos, bottom nav). -->
+    <!-- ¿Qué hace?: CoordinatorLayout gestiona el posicionamiento del AppBar, del contenedor -->
+    <!--             de Fragments y del BottomNavigationView (anclado abajo con layout_gravity). -->
+    <!-- ¿Cuál es su función en el código?: capa visual principal de la pantalla. -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- ¿Para qué sirve?: contenedor de la barra superior (toolbar). -->
+        <!-- ¿Qué hace?: agrupa MaterialToolbar para que se comporte como ActionBar. -->
+        <!-- ¿Cuál es su función en el código?: barra fija superior con el título de la pantalla. -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- ¿Para qué sirve?: mostrar el título y menús de la pantalla actual. -->
+            <!-- ¿Qué hace?: MaterialToolbar se sincroniza con el NavController mediante -->
+            <!--             setupActionBarWithNavController para mostrar el título del Fragment. -->
+            <!-- ¿Cuál es su función en el código?: barra superior de navegación. -->
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/brand_orange"
+                app:title="Tienda Virtual"
+                app:titleTextColor="@color/white" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- ¿Para qué sirve?: alojar los Fragments que cambian según la navegación. -->
+        <!-- ¿Qué hace?: FragmentContainerView con nav_graph dinámico; el gráfico se inyecta -->
+        <!--             desde MainActivity según el rol (buyer, seller, admin). -->
+        <!-- ¿Cuál es su función en el código?: es la "pantalla" real que el usuario ve. -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true" />
+
+        <!-- ¿Para qué sirve?: mostrar la navegación inferior de los 4 ítems por rol. -->
+        <!-- ¿Qué hace?: BottomNavigationView se ancla al fondo y su menú se infla desde código -->
+        <!--             según el rol (bottom_nav_buyer / seller / admin). -->
+        <!-- ¿Cuál es su función en el código?: cambiar entre Fragments con un toque. -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!-- ¿Para qué sirve?: mostrar el menú lateral deslizante. -->
+    <!-- ¿Qué hace?: NavigationView anclado al inicio (izquierda), 280dp de ancho, con -->
+    <!--             el menú drawer_menu.xml. -->
+    <!-- ¿Cuál es su función en el código?: navegación secundaria (configuración, logout, etc.). -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/drawer_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

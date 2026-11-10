@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ¿Para qué sirve?: definir el menú de navegación inferior del rol Comprador. -->
+<!-- ¿Qué hace?: declara 4 ítems (Inicio, Catálogo, Carrito, Perfil) con sus IDs, -->
+<!--             títulos e íconos. -->
+<!-- ¿Cuál es su función en el código?: BottomNavigationView lo infla y muestra los ítems -->
+<!--             como botones inferiores, cada uno asociado a un Fragment del nav_graph. -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ¿Para qué sirve?: ítem que abre la pantalla de inicio del comprador. -->
+    <!-- ¿Qué hace?: al pulsarlo, NavigationUI navega al Fragment con id homeFragment. -->
+    <!-- ¿Cuál es su función en el código?: punto de entrada principal del comprador. -->
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="Inicio" />
+
+    <!-- ¿Para qué sirve?: ítem que abre el catálogo de productos. -->
+    <!-- ¿Qué hace?: navega al Fragment catalogFragment. -->
+    <!-- ¿Cuál es su función en el código?: acceso a la lista completa de productos. -->
+    <item
+        android:id="@+id/catalogFragment"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Catálogo" />
+
+    <!-- ¿Para qué sirve?: ítem que abre el carrito de compras. -->
+    <!-- ¿Qué hace?: navega al Fragment cartFragment. -->
+    <!-- ¿Cuál es su función en el código?: acceso al carrito desde cualquier pantalla. -->
+    <item
+        android:id="@+id/cartFragment"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Carrito" />
+
+    <!-- ¿Para qué sirve?: ítem que abre el perfil del comprador. -->
+    <!-- ¿Qué hace?: navega al Fragment profileFragment. -->
+    <!-- ¿Cuál es su función en el código?: acceso a los datos y configuración del usuario. -->
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Perfil" />
+</menu>

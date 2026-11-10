@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ¿Para qué sirve?: definir el mapa de navegación del rol Administrador. -->
+<!-- ¿Qué hace?: declara los Fragments del admin y su destino inicial (adminDashboardFragment). -->
+<!-- ¿Cuál es su función en el código?: NavController del admin navega a estos destinos. -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_admin"
+    app:startDestination="@id/adminDashboardFragment">
+
+    <fragment
+        android:id="@+id/adminDashboardFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.ui.admin.AdminDashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_admin_dashboard" />
+
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.ui.admin.UsersFragment"
+        android:label="Usuarios"
+        tools:layout="@layout/fragment_users" />
+
+    <fragment
+        android:id="@+id/userFormFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.ui.admin.UserFormFragment"
+        android:label="Usuario"
+        tools:layout="@layout/fragment_user_form" />
+
+    <fragment
+        android:id="@+id/adminProductsFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.ui.admin.AdminProductsFragment"
+        android:label="Productos"
+        tools:layout="@layout/fragment_admin_products" />
+
+    <fragment
+        android:id="@+id/salesReportFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.ui.admin.SalesReportFragment"
+        android:label="Reportes"
+        tools:layout="@layout/fragment_sales_report" />
+</navigation>

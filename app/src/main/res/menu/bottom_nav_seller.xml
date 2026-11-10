@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ¿Para qué sirve?: definir el menú de navegación inferior del rol Vendedor. -->
+<!-- ¿Qué hace?: declara 4 ítems (Panel, Productos, Pedidos, Perfil) con sus IDs. -->
+<!-- ¿Cuál es su función en el código?: el vendedor navega entre sus funciones comerciales. -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ¿Para qué sirve?: ítem que abre el dashboard del vendedor (resumen de ventas). -->
+    <!-- ¿Qué hace?: navega al Fragment sellerDashboardFragment. -->
+    <!-- ¿Cuál es su función en el código?: vista general del negocio del vendedor. -->
+    <item
+        android:id="@+id/sellerDashboardFragment"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="Panel" />
+
+    <!-- ¿Para qué sirve?: ítem que abre la lista de productos del vendedor. -->
+    <!-- ¿Qué hace?: navega al Fragment sellerProductsFragment. -->
+    <!-- ¿Cuál es su función en el código?: gestión (CRUD visual) de sus productos. -->
+    <item
+        android:id="@+id/sellerProductsFragment"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Productos" />
+
+    <!-- ¿Para qué sirve?: ítem que abre los pedidos recibidos. -->
+    <!-- ¿Qué hace?: navega al Fragment sellerOrdersFragment. -->
+    <!-- ¿Cuál es su función en el código?: seguimiento de pedidos de sus clientes. -->
+    <item
+        android:id="@+id/sellerOrdersFragment"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="Pedidos" />
+
+    <!-- ¿Para qué sirve?: ítem que abre el perfil de la tienda. -->
+    <!-- ¿Qué hace?: navega al Fragment sellerProfileFragment. -->
+    <!-- ¿Cuál es su función en el código?: datos del negocio (nombre, NIT, ubicación). -->
+    <item
+        android:id="@+id/sellerProfileFragment"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Perfil" />
+</menu>
