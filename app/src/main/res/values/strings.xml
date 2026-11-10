@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Tienda Virtual</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="recover_password">Recuperar contraseña</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="name">Nombre</string>
+    <string name="phone">Teléfono</string>
+    <string name="address">Dirección</string>
+    <string name="buyer">Comprador</string>
+    <string name="seller">Vendedor</string>
+    <string name="admin">Administrador</string>
+    <string name="add_to_cart">Agregar al carrito</string>
+    <string name="product_image">Imagen del producto</string>
+    <string name="biometric_title">Autenticación biométrica</string>
+    <string name="biometric_subtitle">Usa tu huella para ingresar</string>
+    <string name="cancel">Cancelar</string>
+</resources>
