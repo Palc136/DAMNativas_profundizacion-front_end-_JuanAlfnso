@@ -1,5 +1,11 @@
+<!-- ¿Para qué sirve?: definir el tema visual global de la aplicación. -->
+<!-- ¿Qué hace?: hereda de Material3, aplica los colores personalizados de la tienda -->
+<!--             (naranja y gris oscuro) y configura la barra de estado. -->
+<!-- ¿Cuál es su función en el código?: el nombre "Theme.My_ApplicationDAM_nativa" -->
+<!--             coincide con el valor android:theme del AndroidManifest, por lo que -->
+<!--             el sistema encuentra el tema y genera el archivo R correctamente. -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.TiendaVirtual" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.My_ApplicationDAM_nativa" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/brand_orange</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/brand_dark</item>

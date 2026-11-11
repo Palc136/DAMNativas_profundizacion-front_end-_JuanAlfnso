@@ -1,5 +1,10 @@
+<!-- ¿Para qué sirve?: definir el mismo tema para el modo oscuro del sistema. -->
+<!-- ¿Qué hace?: declara el mismo nombre de tema que en values/ para que la app -->
+<!--             no falle en dispositivos con modo oscuro. -->
+<!-- ¿Cuál es su función en el código?: evita el error "not found" cuando el sistema -->
+<!--             entra en modo noche y busca la variante del tema. -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.TiendaVirtual" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.My_ApplicationDAM_nativa" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/brand_orange</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/brand_dark</item>

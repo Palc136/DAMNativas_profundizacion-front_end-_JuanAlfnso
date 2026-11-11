@@ -2,43 +2,37 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- ¿Para qué sirve?: declarar todas las Activities de la app y designar cuál es el punto de entrada. -->
+    <!-- ¿Qué hace?: configura SplashActivity como launcher único (con intent-filter MAIN/LAUNCHER) -->
+    <!--             y registra las demás Activities como internas, lanzables solo desde la app. -->
+    <!-- ¿Cuál es su función en el código?: garantiza que el flujo sea Splash → Login → MainActivity, -->
+    <!--             en lugar de abrir MainActivity directamente (que crashea por el ActionBar). -->
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.My_ApplicationDAM_nativa">
+
+        <!-- ¿Para qué sirve?: designar SplashActivity como la primera pantalla al abrir la app. -->
+        <!-- ¿Qué hace?: el intent-filter MAIN/LAUNCHER le indica al sistema que este es el punto de entrada. -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize">
+            android:name=".SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize" />
-        <!-- ¿Para qué sirve?: registrar las Activities ante el sistema Android. -->
-        <!-- ¿Qué hace?: declara que RegisterActivity y RecoverPasswordActivity existen y pueden -->
-        <!--             ser lanzadas con Intents. -->
-        <!-- ¿Cuál es su función en el código?: sin esta declaración, abrir la Activity produciría -->
-        <!--             un ActivityNotFoundException. -->
-        <activity android:name=".RecoverPasswordActivity" />
+
+        <!-- ¿Para qué sirve?: registrar las Activities internas sin exponerlas al launcher. -->
+        <!-- ¿Qué hace?: exported="false" impide que otras apps las abran; solo la app las lanza. -->
+        <!-- ¿Cuál es su función en el código?: completa el flujo interno sin conflicto de launchers. -->
+        <activity android:name=".LoginActivity" android:exported="false" />
+        <activity android:name=".RegisterActivity" android:exported="false" />
+        <activity android:name=".RecoverPasswordActivity" android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="false" />
     </application>
 
 </manifest>

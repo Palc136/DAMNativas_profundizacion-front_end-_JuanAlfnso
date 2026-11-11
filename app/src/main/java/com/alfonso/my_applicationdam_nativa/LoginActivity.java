@@ -42,15 +42,24 @@ public class LoginActivity extends AppCompatActivity {
         // ¿Cuál es su función en el código?: hace visible la pantalla de Login.
         setContentView(binding.getRoot());
 
-        // ¿Para qué sirve?: registrar la acción del botón "Iniciar sesión".
-        // ¿Qué hace?: asigna un OnClickListener que, al pulsar, lanza MainActivity
-        //             enviando un extra "ROLE" con valor "buyer" por defecto.
-        // ¿Cuál es su función en el código?: conecta la UI con la navegación al panel
-        //             principal del rol comprador.
+        // ¿Para qué sirve?: permitir elegir el rol al iniciar sesión (para pruebas y demo).
+        // ¿Qué hace?: al pulsar "Iniciar sesión", muestra un diálogo con los 3 roles disponibles;
+//             según el elegido, lanza MainActivity con el extra ROLE correspondiente.
+        // ¿Cuál es su función en el código?: en un entorno real aquí irían validaciones de
+//             correo/contraseña y una llamada al backend; mientras el backend no exista,
+//             este selector permite probar los 3 roles sin recompilar la app.
         binding.btnLogin.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.putExtra("ROLE", "buyer");
-            startActivity(intent);
+            String[] roles = {"Comprador", "Vendedor", "Administrador"};
+            String[] roleKeys = {"buyer", "seller", "admin"};
+
+            new androidx.appcompat.app.AlertDialog.Builder(LoginActivity.this)
+                    .setTitle("Ingresar como")
+                    .setItems(roles, (dialog, which) -> {
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("ROLE", roleKeys[which]);
+                        startActivity(intent);
+                    })
+                    .show();
         });
 
         // ¿Para qué sirve?: registrar la acción del botón biométrico.
@@ -103,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                             @NonNull BiometricPrompt.AuthenticationResult result) {
                         super.onAuthenticationSucceeded(result);
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("ROLE", "buyer");
+                        intent.putExtra("ROLE", "seller");
                         startActivity(intent);
                     }
                 });

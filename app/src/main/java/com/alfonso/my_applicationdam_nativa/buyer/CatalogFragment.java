@@ -1,4 +1,5 @@
 package com.alfonso.my_applicationdam_nativa.buyer;
+import com.alfonso.my_applicationdam_nativa.R;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

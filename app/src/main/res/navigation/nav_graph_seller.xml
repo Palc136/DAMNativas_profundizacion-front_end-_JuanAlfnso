@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!-- ¿Para qué sirve?: definir el mapa de navegación del rol Vendedor. -->
-<!-- ¿Qué hace?: declara los Fragments del vendedor y su destino inicial (sellerDashboardFragment). -->
-<!-- ¿Cuál es su función en el código?: NavController del vendedor navega a estos destinos. -->
+<!-- ¿Qué hace?: asocia cada destino a la clase SellerXxxFragment correspondiente, -->
+<!--             usando el paquete "seller" (sin "ui."). -->
+<!-- ¿Cuál es su función en el código?: NavController usa estos destinos para navegar. -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,31 +10,31 @@
 
     <fragment
         android:id="@+id/sellerDashboardFragment"
-        android:name="com.alfonso.my_applicationdam_nativa.ui.seller.SellerDashboardFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.seller.SellerDashboardFragment"
         android:label="Panel"
         tools:layout="@layout/fragment_seller_dashboard" />
 
     <fragment
         android:id="@+id/sellerProductsFragment"
-        android:name="com.alfonso.my_applicationdam_nativa.ui.seller.SellerProductsFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.seller.SellerProductsFragment"
         android:label="Mis Productos"
         tools:layout="@layout/fragment_seller_products" />
 
     <fragment
         android:id="@+id/productFormFragment"
-        android:name="com.alfonso.my_applicationdam_nativa.ui.seller.ProductFormFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.seller.ProductFormFragment"
         android:label="Producto"
         tools:layout="@layout/fragment_product_form" />
 
     <fragment
         android:id="@+id/sellerOrdersFragment"
-        android:name="com.alfonso.my_applicationdam_nativa.ui.seller.SellerOrdersFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.seller.SellerOrdersFragment"
         android:label="Pedidos"
         tools:layout="@layout/fragment_seller_orders" />
 
     <fragment
         android:id="@+id/sellerProfileFragment"
-        android:name="com.alfonso.my_applicationdam_nativa.ui.seller.SellerProfileFragment"
+        android:name="com.alfonso.my_applicationdam_nativa.seller.SellerProfileFragment"
         android:label="Perfil"
         tools:layout="@layout/fragment_seller_profile" />
 </navigation>

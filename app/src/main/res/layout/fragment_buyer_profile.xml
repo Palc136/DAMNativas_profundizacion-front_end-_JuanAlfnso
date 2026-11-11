@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ¿Para qué sirve?: definir la estructura visual del perfil del comprador. -->
+<!-- ¿Qué hace?: muestra avatar, nombre, correo y botones de acción. -->
+<!-- ¿Cuál es su función en el código?: layout que BuyerProfileFragment infla al mostrarse. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="@color/surface_light">
+
+    <!-- ¿Para qué sirve?: mostrar la foto de perfil del usuario. -->
+    <!-- ¿Qué hace?: ImageView circular (visualmente, por el placeholder). -->
+    <!-- ¿Cuál es su función en el código?: el Fragment puede actualizarla con una imagen real. -->
+    <ImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_card"
+        android:scaleType="centerCrop"
+        android:contentDescription="Avatar" />
+
+    <TextView
+        android:id="@+id/tvName"
+        style="@style/TextAppearance.App.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Juan Pérez" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/text_secondary"
+        android:text="juan@ucompensar.edu.co" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEditProfile"
+        style="@style/Widget.App.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Editar perfil" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMyAddresses"
+        style="@style/Widget.App.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Mis direcciones" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogout"
+        style="@style/Widget.App.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Cerrar sesión" />
+</LinearLayout>

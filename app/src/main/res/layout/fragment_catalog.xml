@@ -5,21 +5,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/surface_light">
 
-    <!-- ¿Para qué sirve?: barra de búsqueda de productos. -->
-    <!-- ¿Qué hace?: SearchView permite escribir y filtra en tiempo real. -->
-    <!-- ¿Cuál es su función en el código?: CatalogFragment captura el texto para filtrar -->
-    <!--             la lista de productos por nombre. -->
-    <SearchView
+    <!-- ¿Para qué sirve?: barra de búsqueda compatible con Material Design. -->
+    <!-- ¿Qué hace?: usa la versión androidx (AppCompat) del SearchView, que expone -->
+    <!--             los mismos métodos que el código Java espera (OnQueryTextListener). -->
+    <!-- ¿Cuál es su función en el código?: al ser androidx, su tipo coincide con el -->
+    <!--             listener que CatalogFragment registra, eliminando el error de tipos. -->
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Buscar productos..."
-        android:iconifiedByDefault="false"
         android:background="@color/white"
-        android:layout_margin="8dp" />
+        android:layout_margin="8dp"
+        app:queryHint="Buscar productos..."
+        app:iconifiedByDefault="false" />
 
     <!-- ¿Para qué sirve?: mostrar la lista completa de productos. -->
     <!-- ¿Qué hace?: RecyclerView vertical con todos los productos del catálogo. -->

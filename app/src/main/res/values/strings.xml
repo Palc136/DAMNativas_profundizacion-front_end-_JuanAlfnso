@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tienda Virtual</string>
+    <string name="app_name">Pacoshop</string>
     <string name="login">Iniciar sesión</string>
     <string name="register">Registrarse</string>
     <string name="recover_password">Recuperar contraseña</string>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ¿Para qué sirve?: definir la estructura visual del carrito de compras. -->
+<!-- ¿Qué hace?: muestra la lista de productos, el total y el botón "Ir a pagar". -->
+<!-- ¿Cuál es su función en el código?: layout que CartFragment infla al mostrarse. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface_light"
+    android:padding="16dp">
+
+    <TextView
+        style="@style/TextAppearance.App.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mi carrito" />
+
+    <!-- ¿Para qué sirve?: mostrar los productos agregados. -->
+    <!-- ¿Qué hace?: RecyclerView con las filas del carrito. -->
+    <!-- ¿Cuál es su función en el código?: CartFragment le asigna CartAdapter. -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp" />
+
+    <!-- ¿Para qué sirve?: mostrar el total a pagar. -->
+    <!-- ¿Qué hace?: TextView alineado a la derecha con estilo destacado. -->
+    <!-- ¿Cuál es su función en el código?: CartFragment lo actualiza al eliminar productos. -->
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Total: $0"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/brand_dark"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- ¿Para qué sirve?: permitir avanzar al checkout. -->
+    <!-- ¿Qué hace?: botón que navega al Fragment de pago. -->
+    <!-- ¿Cuál es su función en el código?: CartFragment enlaza el click para navegar. -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCheckout"
+        style="@style/Widget.App.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Ir a pagar" />
+</LinearLayout>

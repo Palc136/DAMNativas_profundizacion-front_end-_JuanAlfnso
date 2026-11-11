@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // ¿Cuál es su función en el código?: controla qué nav_graph y qué menú cargar.
         String role = getIntent().getStringExtra("ROLE");
         if (role == null) role = "buyer";
+        android.widget.Toast.makeText(this, "Rol recibido: " + role, android.widget.Toast.LENGTH_LONG).show();   // ← diagnóstico
 
         // ¿Para qué sirve?: obtener el NavHostFragment y su NavController.
         // ¿Qué hace?: busca por ID el FragmentContainerView configurado como NavHost
@@ -57,19 +58,20 @@ public class MainActivity extends AppCompatActivity {
         //             correspondientes al NavController y al BottomNavigationView.
         // ¿Cuál es su función en el código?: personaliza la experiencia de navegación
         //             según el rol del usuario autenticado.
-        switch (role) {
-            case "admin":
-                navController.setGraph(R.navigation.nav_graph_admin);
-                binding.bottomNav.inflateMenu(R.menu.bottom_nav_admin);
-                break;
-            case "seller":
-                navController.setGraph(R.navigation.nav_graph_seller);
-                binding.bottomNav.inflateMenu(R.menu.bottom_nav_seller);
-                break;
-            default:
-                navController.setGraph(R.navigation.nav_graph_buyer);
-                binding.bottomNav.inflateMenu(R.menu.bottom_nav_buyer);
-                break;
+        android.util.Log.d("ROLE_DEBUG", "===== ROL RECIBIDO: [" + role + "] =====");
+
+        if ("admin".equals(role)) {
+            android.util.Log.d("ROLE_DEBUG", "→ Rama ADMIN");
+            navController.setGraph(R.navigation.nav_graph_admin);
+            binding.bottomNav.inflateMenu(R.menu.bottom_nav_admin);
+        } else if ("seller".equals(role)) {
+            android.util.Log.d("ROLE_DEBUG", "→ Rama SELLER");
+            navController.setGraph(R.navigation.nav_graph_seller);
+            binding.bottomNav.inflateMenu(R.menu.bottom_nav_seller);
+        } else {
+            android.util.Log.d("ROLE_DEBUG", "→ Rama BUYER (default)");
+            navController.setGraph(R.navigation.nav_graph_buyer);
+            binding.bottomNav.inflateMenu(R.menu.bottom_nav_buyer);
         }
 
         // ¿Para qué sirve?: vincular el BottomNavigationView con el NavController.
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         // ¿Cuál es su función en el código?: tocar un ítem del menú inferior navega
         //             al Fragment asociado.
         NavigationUI.setupWithNavController(binding.bottomNav, navController);
+
 
         // ¿Para qué sirve?: definir cuáles Fragments son de nivel superior.
         // ¿Qué hace?: crea un Set con los IDs de los Fragments principales (home, catálogo,
@@ -95,6 +98,16 @@ public class MainActivity extends AppCompatActivity {
                 .setOpenableLayout(binding.drawerLayout)
                 .build();
 
+
+
+        // ¿Para qué sirve?: registrar la MaterialToolbar como ActionBar de la Activity.
+        // ¿Qué hace?: le dice al AppCompatActivity que la toolbar del layout es su barra
+        //             de acción oficial. Sin esta llamada, getSupportActionBar() devuelve null.
+        // ¿Cuál es su función en el código?: habilita a NavigationUI para cambiar el título
+        //             y mostrar el ícono de menú / atrás; sin ella, setupActionBarWithNavController
+        //             lanza IllegalStateException y la app se cierra al abrir MainActivity.
+        setSupportActionBar(binding.toolbar);
+
         // ¿Para qué sirve?: conectar la Toolbar con el NavController y el Drawer.
         // ¿Qué hace?: configura la barra superior para que muestre el título del Fragment
         //             actual y el ícono de menú / atrás según la jerarquía.
@@ -105,5 +118,22 @@ public class MainActivity extends AppCompatActivity {
         // ¿Qué hace?: los ítems del menú lateral navegan a su destino y reflejan el estado.
         // ¿Cuál es su función en el código?: habilita la navegación por el cajón lateral.
         NavigationUI.setupWithNavController(binding.navView, navController);
+    }
+    /**
+     * Navega al destino cuyo ID coincida con un ítem del BottomNavigationView.
+     * Se usa para que los botones de los Dashboards (vendedor / admin) muevan al usuario
+     * a otra pestaña "como si hubiera pulsado el ícono del menú inferior", manteniendo
+     * el BottomNav siempre sincronizado con el Fragment actual.
+     */
+    public void navigateToTab(int itemId) {
+
+        // ¿Para qué sirve?: disparar la navegación a través del propio BottomNavigationView.
+        // ¿Qué hace?: cambia el ítem seleccionado del BottomNav; internamente esto invoca al
+        //             OnItemSelectedListener de setupWithNavController, que navega al Fragment
+        //             correspondiente y actualiza el back stack de forma coherente.
+        // ¿Cuál es su función en el código?: garantiza que el estado del BottomNav y el del
+        //             NavController no se desincronicen, evitando el bug donde la pantalla no
+        //             cambia aunque el ítem sí se marque.
+        binding.bottomNav.setSelectedItemId(itemId);
     }
 }
