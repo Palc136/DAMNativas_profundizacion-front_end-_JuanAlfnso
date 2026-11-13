@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
 //             este selector permite probar los 3 roles sin recompilar la app.
         binding.btnLogin.setOnClickListener(v -> {
             String[] roles = {"Comprador", "Vendedor", "Administrador"};
-            String[] roleKeys = {"buyer", "seller", "admin"};
+            String[] roleKeys = {"buyer", "seller", "com/alfonso/my_applicationdam_nativa/admin"};
 
             new androidx.appcompat.app.AlertDialog.Builder(LoginActivity.this)
                     .setTitle("Ingresar como")

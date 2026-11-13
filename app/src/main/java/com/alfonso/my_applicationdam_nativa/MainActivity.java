@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         //             según el rol del usuario autenticado.
         android.util.Log.d("ROLE_DEBUG", "===== ROL RECIBIDO: [" + role + "] =====");
 
-        if ("admin".equals(role)) {
+        if ("com/alfonso/my_applicationdam_nativa/admin".equals(role)) {
             android.util.Log.d("ROLE_DEBUG", "→ Rama ADMIN");
             navController.setGraph(R.navigation.nav_graph_admin);
             binding.bottomNav.inflateMenu(R.menu.bottom_nav_admin);
